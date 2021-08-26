@@ -1,0 +1,9 @@
+Sddm,/etc/sddm.conf
+Theme Sddm,/usr/share/sddm/themes/arcolinux-sugar-candy/theme.conf
+Fstab,/etc/fstab
+Samba,/etc/samba/smb.conf
+Key Bindings,.config/qtile/sxhkd/sxhkdrc
+Autostart Qtile,.config/qtile/scripts/autostart.sh
+Picom,.config/qtile/scripts/picom.conf
+Qtile,.config/qtile/config.py
+StarShip,.config/starship.toml

@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+#########################################################
+#
+#23/08/2021 - Gimenez Gabriel - Creation
+#
+##########################################################
+set -euo pipefail
+
+declare -A options
+
+exc_path="$(cd "$( dirname "$(readlink "${BASH_SOURCE[0]}")" )" &> /dev/null && pwd)"
+
+EDIT="emacs"
+WEB="firefox"
+FILE="thunar"
+
+function main(){
+	
+	if [ -z ${1+x} ]; then
+		rofi -width 20 -lines 1 -e "Input parameter missing!"
+	fi
+
+	local file="$exc_path/list_datas/$1"
+
+	if [ ! -f "${file}" ]; then
+	       	rofi -width 20 -lines 1 -e "File: $1 not found!"
+	fi
+	IFS=','
+	name_option=$(cut -d '_' -f1 <<< "$1")
+
+	while read -r name value ; do
+		options[$name]=$value
+	done< "${file}"
+	
+	choice=$(printf "%s\n" "${!options[@]}"|rofi -p " ${name_option^} " -disable-history -width 50 -lines 7 -kb-row-select "Tab" -kb-row-tab "" -i -bw 0 -dmenu "$@")
+	
+	if [ "$choice" ]; then
+		case "${name_option^^}" in
+			"EDIT") ${EDIT} "${options[$choice]}"
+				;;
+			"WEB") ${WEB} "${options[$choice]}"
+				;;
+			"APP") "${options[$choice]}"
+				;;
+			"FILE") ${FILE} "${options[$choice]}"
+				;;
+			*) rofi -e "Action not found."
+				;;
+		esac
+	else
+		rofi -width 20 -lines 1 -e "Finished!!!"
+	fi
+}
+[[ "${BASH_SOURCE[0]}" == "${0}" ]] && main "$@" 
