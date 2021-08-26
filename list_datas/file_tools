@@ -1,6 +1,6 @@
 Data,/run/media/DATA
-Download,/home/gabriel/Downloads
-Documents,/home/gabriel/Documents
-Dropbox,/home/gabriel/Dropbox
-Pictures,/home/gabriel/Pictures
-menu script,/home/gabriel/script-dmenu/
+Download,Downloads
+Documents,Documents
+Dropbox,Dropbox
+Pictures,Pictures
+menu script,script_menu
