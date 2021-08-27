@@ -2,7 +2,7 @@
 
 <p align="center">Custom menu using rofi and script bash</p>
 
-![bash](https://img.shields.io/static/v1?style=for-the-badge&message=bash&color=green&logo=GNU%20Bash)&nbsp;
+![bash](https://img.shields.io/static/v1?style=for-the-badge&label=Bash&message=script&color=green&logo=GNU%20Bash)&nbsp;
 
 # Install
 ```
@@ -13,7 +13,7 @@ $ sudo ln -s ~/script_menu/menu /usr/bin/menu
 ```
 
 # Key Bindings
-Using sxhkd, change .config/qtile/sxhkd/sxhkdrc
+Using sxhkd, edit the file  ~/.config/qtile/sxhkd/sxhkdrc leaving key banding like as shown below 
 
 ```
 # App
